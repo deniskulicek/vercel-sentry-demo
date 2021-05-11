@@ -5,6 +5,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 Make sure to add Sentry DSN to your env:
 ```
 export NEXT_PUBLIC_SENTRY_DSN=xyz
+export SENTRY_AUTH_TOKEN=
+export SENTRY_ORG=
+export SENTRY_PROJECT=
 ```
 
 1. Running dev server locally should trigger sentry errors for both server and client:
@@ -12,7 +15,8 @@ export NEXT_PUBLIC_SENTRY_DSN=xyz
 yarn dev
 ```
 
-Once dev server starts click "Demo page link" on the homepage. It will trigger server side error in 50% of cases. Additionally try clicking the button which will trigger client side error.
+_Once dev server starts click "Demo page link" on the homepage. For server side error - refresh the demo page until you the error - it will trigger server side error in 50% of cases. 
+Additionally for client side error - click the button which will trigger it._
 
 2. Building production version and running it locally should also trigger same errors:
 
@@ -29,3 +33,5 @@ SENTRY_AUTH_TOKEN=
 SENTRY_ORG=
 SENTRY_PROJECT=
 ```
+
+Trigger same set of errors, observe that only client side errors are reported in this case.
